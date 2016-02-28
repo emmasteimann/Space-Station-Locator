@@ -12,6 +12,7 @@
 		215A69E21C82909600155C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215A69E01C82909600155C65 /* Main.storyboard */; };
 		215A69E41C82909700155C65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215A69E31C82909700155C65 /* Assets.xcassets */; };
 		215A69E71C82909700155C65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 215A69E51C82909700155C65 /* LaunchScreen.storyboard */; };
+		215A69EF1C82925500155C65 /* GroundControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A69EE1C82925500155C65 /* GroundControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		215A69E31C82909700155C65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		215A69E61C82909700155C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		215A69E81C82909700155C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		215A69EE1C82925500155C65 /* GroundControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroundControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				215A69DC1C82909600155C65 /* AppDelegate.swift */,
 				215A69DE1C82909600155C65 /* ViewController.swift */,
+				215A69EE1C82925500155C65 /* GroundControl.swift */,
 				215A69E01C82909600155C65 /* Main.storyboard */,
 				215A69E31C82909700155C65 /* Assets.xcassets */,
 				215A69E51C82909700155C65 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			files = (
 				215A69DF1C82909600155C65 /* ViewController.swift in Sources */,
 				215A69DD1C82909600155C65 /* AppDelegate.swift in Sources */,
+				215A69EF1C82925500155C65 /* GroundControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
