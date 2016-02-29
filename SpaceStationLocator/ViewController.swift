@@ -14,6 +14,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
   let locationManager = CLLocationManager()
   let gc = GroundControl()
   var spaceStation:SpaceStationAnnotation?
+  var hasLoadedMap = false
   
   var spaceStationCoordinates = CLLocationCoordinate2D()
   
@@ -38,8 +39,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
   func loadMapView() {
     spaceStation = SpaceStationAnnotation(coordinate: spaceStationCoordinates, identifier: "ISS")
     mapView.addAnnotation(spaceStation!)
-    setMapRegionForCoordinates((locationManager.location?.coordinate)!)
-    
+    if let location = locationManager.location {
+      setMapRegionForCoordinates(location.coordinate)
+    }
     mapView.delegate = self
     gc.getSpaceStationLocation()
     gc.pollOpenNotifyAtInterval(3)
@@ -55,13 +57,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
   }
   
   func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    gc.getNextISSPass((locations.first?.coordinate)!)
+    if !hasLoadedMap {
+      gc.getNextISSPass((locations.first?.coordinate)!)
+      loadMapView()
+      hasLoadedMap = true
+    }
   }
   
   func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
     if (status == .AuthorizedAlways) {
-      gc.getNextISSPass((locationManager.location?.coordinate)!)
-      loadMapView()
       mapView.showsUserLocation = true
     }
   }
@@ -81,6 +85,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
       return annotationView
     }
     return nil
+  }
+  
+  func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    print("\(error.localizedDescription)")
   }
   
   func didUpdateSpaceStationLocation(coordinates:CLLocationCoordinate2D) {
